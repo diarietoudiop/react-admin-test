@@ -1,4 +1,3 @@
-// src/components/users/index.js
 import {
     List,
     Datagrid,
@@ -9,48 +8,48 @@ import {
     TextInput,
     Create,
     Show,
-    SimpleShowLayout
-} from 'react-admin';
-
-export const UserList = () => (
+    SimpleShowLayout,
+    EditButton,
+    ShowButton,
+  } from 'react-admin';
+  
+  export const UserList = () => (
     <List>
-        <Datagrid rowClick="show">
-            <TextField source="id" />
-            <TextField source="name" />
-            <EmailField source="email" />
-            <TextField source="phone" />
-        </Datagrid>
+      <Datagrid>
+        <TextField source="id" />
+        <TextField source="name" />
+        <EmailField source="email" />
+        <EditButton />
+        <ShowButton />
+      </Datagrid>
     </List>
-);
-
-export const UserEdit = () => (
+  );
+  
+  export const UserEdit = () => (
     <Edit>
-        <SimpleForm>
-            <TextInput disabled source="id" />
-            <TextInput source="name" />
-            <TextInput source="email" />
-            <TextInput source="phone" />
-        </SimpleForm>
+      <SimpleForm>
+        <TextInput disabled source="id" />
+        <TextInput source="name" />
+        <TextInput source="email" />
+      </SimpleForm>
     </Edit>
-);
-
-export const UserCreate = () => (
+  );
+  
+  export const UserCreate = () => (
     <Create>
-        <SimpleForm>
-            <TextInput source="name" />
-            <TextInput source="email" />
-            <TextInput source="phone" />
-        </SimpleForm>
+      <SimpleForm>
+        <TextInput source="name" />
+        <TextInput source="email" />
+      </SimpleForm>
     </Create>
-);
-
-export const UserShow = () => (
+  );
+  
+  export const UserShow = () => (
     <Show>
-        <SimpleShowLayout>
-            <TextField source="id" />
-            <TextField source="name" />
-            <EmailField source="email" />
-            <TextField source="phone" />
-        </SimpleShowLayout>
+      <SimpleShowLayout>
+        <TextField source="id" />
+        <TextField source="name" />
+        <EmailField source="email" />
+      </SimpleShowLayout>
     </Show>
-);
+  );

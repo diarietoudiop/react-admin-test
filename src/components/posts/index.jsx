@@ -1,4 +1,3 @@
-// src/components/posts/index.js
 import {
     List,
     Datagrid,
@@ -10,52 +9,60 @@ import {
     ReferenceInput,
     Create,
     Show,
-    SimpleShowLayout
-} from 'react-admin';
-
-export const PostList = () => (
+    SimpleShowLayout,
+    EditButton,
+    ShowButton,
+  } from 'react-admin';
+  
+  export const PostList = () => (
     <List>
-        <Datagrid rowClick="show">
-            <TextField source="id" />
-            <TextField source="title" />
-            <TextField source="body" />
-            <ReferenceField source="userId" reference="users">
-                <TextField source="name" />
-            </ReferenceField>
-        </Datagrid>
+      <Datagrid>
+        <TextField source="id" />
+        <TextField source="title" />
+        <TextField source="body" />
+        <ReferenceField source="userId" reference="users">
+          <TextField source="name" />
+        </ReferenceField>
+        <EditButton />
+        <ShowButton />
+      </Datagrid>
     </List>
-);
-
-export const PostEdit = () => (
+  );
+  
+  export const PostEdit = () => (
     <Edit>
-        <SimpleForm>
-            <TextInput disabled source="id" />
-            <TextInput source="title" />
-            <TextInput multiline source="body" />
-            <ReferenceInput source="userId" reference="users" />
-        </SimpleForm>
+      <SimpleForm>
+        <TextInput disabled source="id" />
+        <TextInput source="title" />
+        <TextInput multiline source="body" />
+        <ReferenceInput source="userId" reference="users">
+          <TextInput source="name" />
+        </ReferenceInput>
+      </SimpleForm>
     </Edit>
-);
-
-export const PostCreate = () => (
+  );
+  
+  export const PostCreate = () => (
     <Create>
-        <SimpleForm>
-            <TextInput source="title" />
-            <TextInput multiline source="body" />
-            <ReferenceInput source="userId" reference="users" />
-        </SimpleForm>
+      <SimpleForm>
+        <TextInput source="title" />
+        <TextInput multiline source="body" />
+        <ReferenceInput source="userId" reference="users">
+          <TextInput source="name" />
+        </ReferenceInput>
+      </SimpleForm>
     </Create>
-);
-
-export const PostShow = () => (
+  );
+  
+  export const PostShow = () => (
     <Show>
-        <SimpleShowLayout>
-            <TextField source="id" />
-            <TextField source="title" />
-            <TextField source="body" />
-            <ReferenceField source="userId" reference="users">
-                <TextField source="name" />
-            </ReferenceField>
-        </SimpleShowLayout>
+      <SimpleShowLayout>
+        <TextField source="id" />
+        <TextField source="title" />
+        <TextField source="body" />
+        <ReferenceField source="userId" reference="users">
+          <TextField source="name" />
+        </ReferenceField>
+      </SimpleShowLayout>
     </Show>
-);
+  );

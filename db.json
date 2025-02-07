@@ -1,32 +1,34 @@
 {
-    "users": [
-      {
-        "id": 1,
-        "name": "John Doe",
-        "email": "john@example.com",
-        "role": "admin"
-      },
-      {
-        "id": 2,
-        "name": "Jane Smith",
-        "email": "jane@example.com",
-        "role": "editor"
-      }
-    ],
-    "posts": [
-      {
-        "id": 1,
-        "title": "Premier article",
-        "content": "Contenu du premier article",
-        "userId": 1,
-        "date": "2024-02-06"
-      },
-      {
-        "id": 2,
-        "title": "Second article",
-        "content": "Contenu du second article",
-        "userId": 2,
-        "date": "2024-02-06"
-      }
-    ]
-  }
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    }
+  ],
+  "posts": [
+    {
+      "title": "Premier article",
+      "body": "Contenu du premier articles",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Deuxième article",
+      "body": "Contenu du deuxième article",
+      "userId": 2
+    },
+    {
+      "title": "me",
+      "body": "moi",
+      "name": "azert",
+      "id": 3
+    }
+  ]
+}
