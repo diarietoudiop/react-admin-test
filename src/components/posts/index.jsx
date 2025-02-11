@@ -1,68 +1,114 @@
 import {
-    List,
-    Datagrid,
-    TextField,
-    ReferenceField,
-    Edit,
-    SimpleForm,
-    TextInput,
-    ReferenceInput,
-    Create,
-    Show,
-    SimpleShowLayout,
-    EditButton,
-    ShowButton,
-  } from 'react-admin';
-  
-  export const PostList = () => (
-    <List>
-      <Datagrid>
-        <TextField source="id" />
-        <TextField source="title" />
-        <TextField source="body" />
-        <ReferenceField source="userId" reference="users">
-          <TextField source="name" />
-        </ReferenceField>
-        <EditButton />
-        <ShowButton />
+  List,
+  Datagrid,
+  TextField,
+  ReferenceField,
+  DateField,
+  EditButton,
+  SelectInput,
+  ReferenceInput,
+  TextInput,
+  Edit,
+  Create,
+  SimpleForm,
+  Show,
+  SimpleShowLayout,
+  DateInput,
+  required
+} from 'react-admin';
+import StatusField from '../StatusField';
+
+// Post filters
+const postFilters = [
+  <TextInput source="q" label="Rechercher" alwaysOn />,
+  <ReferenceInput source="userId" reference="users" label="Auteur">
+      <SelectInput optionText="name" />
+  </ReferenceInput>,
+  <SelectInput
+      source="status"
+      choices={[
+          { id: 'published', name: 'Publié' },
+          { id: 'draft', name: 'Brouillon' },
+      ]}
+      label="Statut"
+  />,
+  <DateInput source="publishedAt" label="Date de publication" />
+];
+
+// List component
+export const PostList = () => (
+  <List 
+      filters={postFilters}
+      sort={{ field: 'publishedAt', order: 'DESC' }}
+      perPage={10}
+  >
+      <Datagrid rowClick="show">
+          <TextField source="title" label="Titre" />
+          <ReferenceField source="userId" reference="users" link="show" label="Auteur">
+              <TextField source="name" />
+          </ReferenceField>
+          <DateField source="publishedAt" label="Date de publication" locales="fr-FR" showTime />
+          <StatusField source="status" label="Statut" />
+          <EditButton />
       </Datagrid>
-    </List>
-  );
-  
-  export const PostEdit = () => (
-    <Edit>
+  </List>
+);
+
+// Edit component
+export const PostEdit = () => (
+  <Edit>
       <SimpleForm>
-        <TextInput disabled source="id" />
-        <TextInput source="title" />
-        <TextInput multiline source="body" />
-        <ReferenceInput source="userId" reference="users">
-          <TextInput source="name" />
-        </ReferenceInput>
+          <TextInput source="title" label="Titre" validate={[required()]} fullWidth />
+          <TextInput multiline source="body" label="Contenu" validate={[required()]} fullWidth rows={5} />
+          <ReferenceInput source="userId" reference="users" label="Auteur">
+              <SelectInput optionText="name" />
+          </ReferenceInput>
+          <SelectInput
+              source="status"
+              choices={[
+                  { id: 'published', name: 'Publié' },
+                  { id: 'draft', name: 'Brouillon' },
+              ]}
+              label="Statut"
+          />
+          <DateInput source="publishedAt" label="Date de publication" />
       </SimpleForm>
-    </Edit>
-  );
-  
-  export const PostCreate = () => (
-    <Create>
+  </Edit>
+);
+
+// Create component
+export const PostCreate = () => (
+  <Create>
       <SimpleForm>
-        <TextInput source="title" />
-        <TextInput multiline source="body" />
-        <ReferenceInput source="userId" reference="users">
-          <TextInput source="name" />
-        </ReferenceInput>
+          <TextInput source="title" label="Titre" validate={[required()]} fullWidth />
+          <TextInput multiline source="body" label="Contenu" validate={[required()]} fullWidth rows={5} />
+          <ReferenceInput source="userId" reference="users" label="Auteur">
+              <SelectInput optionText="name" />
+          </ReferenceInput>
+          <SelectInput
+              source="status"
+              choices={[
+                  { id: 'published', name: 'Publié' },
+                  { id: 'draft', name: 'Brouillon' },
+              ]}
+              label="Statut"
+              defaultValue="draft"
+          />
       </SimpleForm>
-    </Create>
-  );
-  
-  export const PostShow = () => (
-    <Show>
+  </Create>
+);
+
+// Show component
+export const PostShow = () => (
+  <Show>
       <SimpleShowLayout>
-        <TextField source="id" />
-        <TextField source="title" />
-        <TextField source="body" />
-        <ReferenceField source="userId" reference="users">
-          <TextField source="name" />
-        </ReferenceField>
+          <TextField source="title" label="Titre" />
+          <TextField source="body" label="Contenu" />
+          <ReferenceField source="userId" reference="users" label="Auteur">
+              <TextField source="name" />
+          </ReferenceField>
+          <StatusField source="status" label="Statut" />
+          <DateField source="publishedAt" label="Date de publication" locales="fr-FR" showTime />
       </SimpleShowLayout>
-    </Show>
-  );
+  </Show>
+);

@@ -9,25 +9,44 @@
       "id": 2,
       "name": "Jane Smith",
       "email": "jane@example.com"
+    },
+    {
+      "isActive": true,
+      "name": "diary",
+      "email": "devdiarietou",
+      "password": "admin",
+      "id": 3
+    },
+    {
+      "isActive": true,
+      "name": "Fanta",
+      "email": "fanta@gmail.com",
+      "password": "admin",
+      "id": 4
     }
   ],
   "posts": [
     {
+      "id": 1,
       "title": "Premier article",
-      "body": "Contenu du premier articles",
+      "body": "Contenu du premier article",
       "userId": 1,
-      "id": 1
+      "status": "published",
+      "publishedAt": "2024-02-07T10:00:00.000Z"
     },
     {
       "id": 2,
       "title": "Deuxième article",
       "body": "Contenu du deuxième article",
-      "userId": 2
+      "userId": 2,
+      "status": "draft",
+      "publishedAt": "2024-02-07T11:30:00.000Z"
     },
     {
-      "title": "me",
-      "body": "moi",
-      "name": "azert",
+      "status": "published",
+      "title": "aze",
+      "body": "rien",
+      "userId": 3,
       "id": 3
     }
   ]
