@@ -10,7 +10,7 @@ const StatCard = ({ title, value, icon, color }) => (
     sx={{
       background: `linear-gradient(135deg, ${color}11 0%, ${color}22 100%)`,
       transition: 'all 0.3s ease',
-      animation: 'fadeIn 0.5s ease-out',
+      animation: 'fadeIn 0.5s ease-out', 
       '&:hover': {
         transform: 'translateY(-4px)',
         boxShadow: 3

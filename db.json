@@ -48,6 +48,13 @@
       "body": "rien",
       "userId": 3,
       "id": 3
+    },
+    {
+      "status": "published",
+      "title": "Fanta la folle",
+      "body": "gentille ",
+      "userId": 3,
+      "id": 4
     }
   ]
 }
