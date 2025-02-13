@@ -8,6 +8,9 @@ import { UserList, UserEdit, UserCreate, UserShow } from './components/users';
 import { PostList, PostEdit, PostCreate, PostShow } from './components/posts';
 import Dashboard from './components/dashboard/index';
 import authProvider from './providers/authProvider';
+// import { CustomLayout } from './components/customlayout';
+// import LogoutButton from './components/common/LogoutButton/index';
+
 
 const lightTheme = createTheme({
   palette: {
@@ -56,6 +59,7 @@ const CustomAppBar = ({ themeMode, setThemeMode, ...props }) => (
       <Typography variant="h6" id="react-admin-title"></Typography>
     </Box>
     <ThemeToggler themeMode={themeMode} setThemeMode={setThemeMode} />
+    {/* <LogoutButton/> */}
   </AppBar>
 );
 
@@ -73,6 +77,7 @@ const App = () => {
   return (
     <ThemeProvider theme={themeMode === 'dark' ? darkTheme : lightTheme}>
       <Admin
+       
         dashboard={Dashboard}
         authProvider={authProvider}
         dataProvider={jsonServerProvider('http://localhost:3004')}

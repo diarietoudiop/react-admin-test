@@ -20,9 +20,23 @@
     {
       "isActive": true,
       "name": "Fanta",
-      "email": "fanta@gmail.com",
+      "email": "fanta2@gmail.com",
       "password": "admin",
       "id": 4
+    },
+    {
+      "isActive": true,
+      "name": "Anta",
+      "email": "anta@gmail.com",
+      "password": "admin",
+      "id": 5
+    },
+    {
+      "isActive": true,
+      "name": "Ndiaga",
+      "email": "ndiaga@gmail.com",
+      "password": "admin",
+      "id": 6
     }
   ],
   "posts": [
@@ -63,6 +77,14 @@
       "status": "published",
       "publishedAt": "2025-02-12",
       "id": 5
+    },
+    {
+      "title": "Post",
+      "body": "poster",
+      "userId": 5,
+      "status": "published",
+      "publishedAt": "2025-02-13",
+      "id": 6
     }
   ]
 }
