@@ -1,4 +1,4 @@
-import { Admin, Resource, Layout, AppBar } from 'react-admin';
+import { Admin, Resource, Layout, AppBar, UserMenu,useLogout } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
@@ -8,6 +8,8 @@ import { UserList, UserEdit, UserCreate, UserShow } from './components/users';
 import { PostList, PostEdit, PostCreate, PostShow } from './components/posts';
 import Dashboard from './components/dashboard/index';
 import authProvider from './providers/authProvider';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 // import { CustomLayout } from './components/customlayout';
 // import LogoutButton from './components/common/LogoutButton/index';
 
@@ -53,15 +55,26 @@ const ThemeToggler = ({ themeMode, setThemeMode }) => (
   </IconButton>
 );
 
-const CustomAppBar = ({ themeMode, setThemeMode, ...props }) => (
-  <AppBar {...props}>
-    <Box flex="1">
-      <Typography variant="h6" id="react-admin-title"></Typography>
-    </Box>
-    <ThemeToggler themeMode={themeMode} setThemeMode={setThemeMode} />
-    {/* <LogoutButton/> */}
-  </AppBar>
-);
+
+
+const CustomAppBar = ({ themeMode, setThemeMode, ...props }) => {
+  const logout = useLogout();
+  
+  return (
+    <AppBar {...props}>
+      <Box flex="1">
+        <Typography variant="h6" id="react-admin-title"></Typography>
+      </Box>
+      <IconButton 
+        color="inherit" 
+        onClick={() => logout()}
+        sx={{ marginLeft: 1 }}
+      >
+        <LogoutIcon />
+      </IconButton>
+    </AppBar>
+  );
+};
 
 const CustomLayout = ({ themeMode, setThemeMode, ...props }) => (
   <Layout {...props} appBar={(appBarProps) => <CustomAppBar {...appBarProps} themeMode={themeMode} setThemeMode={setThemeMode} />} />
