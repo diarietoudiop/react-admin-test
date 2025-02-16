@@ -17,8 +17,7 @@ Ces commandes doivent être exécutées dans des terminaux séparés et maintenu
 Installation complète
 
 Clonez le dépôt :
-git clone [URL_DU_REPO]
-cd [NOM_DU_PROJET]
+git clone https://github.com/diarietoudiop/react-admin-test
 
 Installez les dépendances :
 bash :
